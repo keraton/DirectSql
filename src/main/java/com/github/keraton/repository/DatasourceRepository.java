@@ -13,7 +13,6 @@ import java.util.Map;
 @Repository
 public class DatasourceRepository {
 
-    private Map<String, Datasource> map = new HashMap<>();
     private Map<String, JdbcTemplate> mapResource = new HashMap<>();
 
     private final YamlParser yamlParser;
@@ -23,16 +22,12 @@ public class DatasourceRepository {
         this.yamlParser = yamlParser;
     }
 
-    public Datasource findDatasourceByName(String name) {
-        return map.get(name);
-    }
 
     public JdbcTemplate findJdbcTemplate(String name) {
         return mapResource.get(name);
     }
 
     public void init() {
-        map.clear();
         mapResource.clear();
 
         yamlParser.parseDatasource()
@@ -41,7 +36,6 @@ public class DatasourceRepository {
     }
 
     private void initMap(Datasource datasource) {
-        map.put(datasource.getName(), datasource);
         mapResource.put(datasource.getName(), getJdbcTemplate(datasource));
     }
 
