@@ -15,9 +15,9 @@ import static java.util.Arrays.asList;
 /**
  * Scan and find all yaml files that is placed in a specific files
  * by default is directsql, but it can be modified (not yet)
- * - The query pattern is *-query.yaml
+ * - The query pattern is *-query.yml
  *      | This will contains one query
- * - The connection pattern is jdbc-connection.yaml
+ * - The connection pattern is jdbc-connection.yml
  *      | This will contains all jdbc connection informations
  */
 @Component

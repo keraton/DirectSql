@@ -14,7 +14,6 @@ import java.util.Map;
 public class DatasourceRepository {
 
     private Map<String, JdbcTemplate> mapResource = new HashMap<>();
-
     private final YamlParser yamlParser;
 
     @Autowired

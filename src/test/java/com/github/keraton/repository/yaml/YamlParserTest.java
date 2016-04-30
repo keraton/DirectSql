@@ -71,7 +71,7 @@ public class YamlParserTest {
     }
 
     @Test
-    public void should () {
+    public void should_parse_datasource () {
         // Given
         List<File> listFile = getFiles("classpath:sqlquery/jdbc-datasource.yml");
         when(yamlFileScanner.scanDatasource()).thenReturn(listFile.get(0));
