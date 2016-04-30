@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+    <li><a data-ng-click="goToQuery()" class="m_title">Back to {{selectedQuery}}</a></li>
+    <li class="active">{{map}}</li>
+</ol>
+<div class="panel panel-default" ng-repeat="key in keys">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{key}}</h3>
+    </div>
+    <div class="panel-body">
+        {{data[key]}}
+    </div>
+</div>

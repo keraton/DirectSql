@@ -1,0 +1,13 @@
+datasource: datasource1
+name: address
+description: This is address table query contains a lot of data
+mainSql: |
+        Select ID, NAME, COUNTRY
+        from Address
+        {{WHERE}}
+        limit {{LIMIT}} offset {{OFFSET}}
+
+detailSql: |
+        Select ID, NAME, PHONE, ADDRESS, CITY, COUNTRY
+        from Address
+        Where ID = {{ID}}

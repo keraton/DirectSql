@@ -1,0 +1,63 @@
+<div>
+    <div class="row">
+        <!-- Left menu -->
+        <div class="col-md-2">
+            <ul class="list-group">
+                <li class="list-group-item" ng-class="{active: selectedQuery==query}"
+                    ng-repeat="query in queryCollection">
+                    <span hred="#" class="query-template" data-ng-click="selectQueryByLocation(query)">{{query}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="col-md-10">
+            <!-- Header -->
+            <form ng-submit="databaseQueryFilter()">
+                <div class="col-md-10">
+                <div class="form-group">
+                    <label for="queryFilter" class="m_title">
+                        {{selectedQuery}}
+                        <span class="label label-info query-template" data-ng-click="goToInfo()">Info</span>
+                    </label>
+                    <input type="text"  ng-Model="queryFilter" class="form-control" id="queryFilter" placeholder="Database Filter">
+                </div>
+                </div>
+            </form>
+            <form ng-submit="limitQuery()">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="limit">Limit</label>
+                        <input type="text" class="form-control" ng-Model="limit" id="limit" placeholder="Limit">
+                    </div>
+                </div>
+            </form>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="col in columns" st-sort="{{col}}">{{col}}</th>
+                        </tr>
+                        <tr>
+                            <th colspan="{{columns.length}}">
+                                <input st-search="" class="form-control" placeholder="local search ..." type="text"/>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in displayedCollection" data-ng-click="goToDetail(row)" ng-class="{has_detail: hasDetail}">
+                            <td ng-repeat="col in columns">{{row[col]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>

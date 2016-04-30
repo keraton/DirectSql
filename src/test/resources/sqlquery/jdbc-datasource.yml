@@ -1,0 +1,12 @@
+---
+datasource1:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: sa
+    password: none
+
+datasource2:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test2
+    username: sa
+    password: none

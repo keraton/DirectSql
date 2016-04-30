@@ -1,0 +1,5 @@
+datasource: datasource1
+name: query1
+description: This is a query 1 description
+mainSql: |
+        Select ID, NAME from TEST

@@ -1,0 +1,6 @@
+datasource: datasource1
+name: query1
+description: This is a query 1 description
+mainSql: |
+        Select column1 as column1, column2 as column2
+        from table_1
