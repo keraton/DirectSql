@@ -99,10 +99,9 @@ angular.module('myApp.viewQueries', ['ngRoute','smart-table'])
      }
 
      $scope.goToDetail = function (map) {
-        if ($scope.hasDetail) {
-            var detail = { "selectedQuery" : $scope.selectedQuery, "map" : angular.toJson(map)}
-            $location.path("detail").search(detail);
-        }
+        return "/#/detail"
+                    + "?selectedQuery="  + $scope.selectedQuery
+                    + "&map=" + angular.toJson(map);
      }
 
     // Init

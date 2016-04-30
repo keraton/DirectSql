@@ -47,8 +47,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="row in displayedCollection" data-ng-click="goToDetail(row)" ng-class="{has_detail: hasDetail}">
-                            <td ng-repeat="col in columns">{{row[col]}}</td>
+                        <tr ng-repeat="row in displayedCollection">
+                            <td ng-repeat="col in columns">
+                                <a ng-if="hasDetail" href="{{goToDetail(row)}}">{{row[col]}}</a>
+                                <span ng-if="!hasDetail">{{row[col]}}</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
