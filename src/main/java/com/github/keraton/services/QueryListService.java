@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class QuerySearchService {
+public class QueryListService {
 
     private final QueryRepository queryRepository;
 
     @Autowired
-    public QuerySearchService(QueryRepository queryRepository) {
+    public QueryListService(QueryRepository queryRepository) {
         this.queryRepository = queryRepository;
     }
 

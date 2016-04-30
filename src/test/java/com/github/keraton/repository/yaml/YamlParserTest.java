@@ -2,6 +2,7 @@ package com.github.keraton.repository.yaml;
 
 import com.github.keraton.model.Datasource;
 import com.github.keraton.model.Query;
+import com.github.keraton.repository.utils.MustacheExtractor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,6 +28,9 @@ public class YamlParserTest {
 
     @Spy
     private YamlMapper yamlMapper = new YamlMapper();
+
+    @Spy
+    private MustacheExtractor mustacheExtractor = new MustacheExtractor();
 
     @InjectMocks
     private YamlParser yamlParser;

@@ -1,11 +1,11 @@
-package com.github.keraton.controller;
+package com.github.keraton.web.controller;
 
-import com.github.keraton.dto.Detail;
-import com.github.keraton.dto.Result;
+import com.github.keraton.web.dto.Detail;
+import com.github.keraton.web.dto.Result;
 import com.github.keraton.model.Query;
 import com.github.keraton.services.InitializerService;
 import com.github.keraton.services.QueryResultService;
-import com.github.keraton.services.QuerySearchService;
+import com.github.keraton.services.QueryListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +16,7 @@ import java.util.Map;
 public class QueryRestController {
 
     @Autowired
-    private QuerySearchService querySearchService;
+    private QueryListService queryListService;
 
     @Autowired
     private InitializerService initializerService;
@@ -32,19 +32,19 @@ public class QueryRestController {
 
     @RequestMapping(value = "/search", params = "name")
     public Query query(@RequestParam("name") String name) {
-        return querySearchService.search(name);
+        return queryListService.search(name);
     }
 
     @RequestMapping(value = "/list")
     public List<String> list() {
-        return querySearchService.list();
+        return queryListService.list();
     }
 
-    @RequestMapping(value = "/execute", params = "name")
+    @RequestMapping(value = "/getResult", params = "name")
     public Result execute(@RequestParam("name") String name) {
         Result result = new Result();
-        result.setRows(queryResultService.execute(name));
-        result.setHasDetail(querySearchService.search(name).hasDetail());
+        result.setRows(queryResultService.getResult(name));
+        result.setHasDetail(queryListService.search(name).hasDetail());
         return result;
     }
 
@@ -54,16 +54,16 @@ public class QueryRestController {
                                                    @RequestParam(value = "limit", required = false) Integer limit,
                                                    @RequestParam(value = "offset", required = false) Integer offset) {
         Result result = new Result();
-        result.setRows(queryResultService.execute(name,
+        result.setRows(queryResultService.getResult(name,
                                                     queryFilter == null ? null : queryFilter.replaceAll("__PERCENT__", "%"),
                                                     limit,
                                                     offset));
-        result.setHasDetail(querySearchService.search(name).hasDetail());
+        result.setHasDetail(queryListService.search(name).hasDetail());
         return result;
     }
 
     @RequestMapping(value = "/detail", method = RequestMethod.POST)
     public Map<String, Object> detail(@RequestBody Detail detail) {
-        return queryResultService.getDetail(detail.getSelectedQuery(), detail.getMap());
+        return queryResultService.getDetailResult(detail.getSelectedQuery(), detail.getMap());
     }
 }

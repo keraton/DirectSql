@@ -1,4 +1,4 @@
-package com.github.keraton.dto;
+package com.github.keraton.web.dto;
 
 import java.util.List;
 import java.util.Map;

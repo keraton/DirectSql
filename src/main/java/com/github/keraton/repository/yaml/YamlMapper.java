@@ -16,7 +16,7 @@ public class YamlMapper {
             FileInputStream fileInputStream = getFileInputStream(file);
             return getStringObjectMap(fileInputStream);
         } catch (FileNotFoundException e) {
-            throw new IllegalStateException("File not found");
+            throw new IllegalStateException("File not found", e);
         }
     }
 

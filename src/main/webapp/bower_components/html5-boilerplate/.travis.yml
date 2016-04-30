@@ -12,7 +12,7 @@ after_success:
   - |
 
       # If all the tests pass in all the runtimes, make Travis
-      # automatically download and execute the following script
+      # automatically download and getResult the following script
 
       if [ "$BUILD_LEADER" == "YES" ]; then
         if [ "$BUILD_AGGREGATE_STATUS" == "others_succeeded" ]; then \
@@ -27,7 +27,7 @@ after_success:
           #   * ensuring that the content from the `dist/` directory
           #     is always in sync with the rest of the content
           #
-          #   * removing the need to execute the build step locally
+          #   * removing the need to getResult the build step locally
           #     everytime a change is made (especially in the case
           #     of trivial changes such as typos)
           #
