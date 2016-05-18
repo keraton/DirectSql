@@ -22,8 +22,8 @@ public class YamlFileScannerTest {
         // Then : We should have at least test-query.yml
         assertThat(files).isNotEmpty();
         assertThat(files).haveAtLeastOne(new Condition<>(
-                                             file -> ((File)file).getName().contains("empty-query.yml"),
-                                            "file name empty-query")
+                                             file -> ((File)file).getName().contains("person-query.yml"),
+                                            "file name person-query")
         );
 
     }

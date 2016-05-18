@@ -1,0 +1,5 @@
+datasource: datasource1
+name: person
+description: This is a query 1 description
+mainSql: |
+        Select ID, NAME from PERSON

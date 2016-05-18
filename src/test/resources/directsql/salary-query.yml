@@ -1,0 +1,12 @@
+datasource: datasource1
+name: salary
+description: This is a query 1 description
+mainSql: |
+        Select id, Title, last_name from SALARY
+        {{WHERE}}
+        limit {{LIMIT}} offset {{OFFSET}}
+
+detailSql: |
+        Select id, Title, last_name, email, gender, company
+        from SALARY
+        Where ID = {{ID}}

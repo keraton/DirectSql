@@ -1,6 +1,6 @@
 ---
 datasource1:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:~/test
+    url: jdbc:h2:tcp://localhost/~/acceptance_test
     username: sa
     password:
