@@ -14,7 +14,7 @@ Feature: Queries page feature
   Scenario: User open queries page
     When user access the queries page
     Then load queries: person, salary
-    And  the first query is selected
+    And  default first query is selected
     And  the table contains data
 
   @Ready
@@ -66,7 +66,7 @@ Feature: Queries page feature
      When user click at info link
      Then user redirected to info page
 
-  @DevReady
+  @Ready
   Scenario: User open query detail
     Given user access the query salary page
       And the table contains columns

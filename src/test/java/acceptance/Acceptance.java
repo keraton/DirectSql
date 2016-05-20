@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import java.sql.SQLException;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(tags = "@DevReady")
+@CucumberOptions(tags = "@Ready")
 public class Acceptance {
 
     @BeforeClass
