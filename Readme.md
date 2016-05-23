@@ -22,7 +22,7 @@ Java 8 installed
 
 ### Run DirectSQL
 
-We ship DirectSQL in a tar file that can be download from this release page. Once it is downloaded
+We ship DirectSQL in a tar file that can be download from this [release page] (https://github.com/keraton/DirectSql/releases). Once it is downloaded
 you can un-tar it. The structure of un-tar DirectSQL is :
 
 ```
