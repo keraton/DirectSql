@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class YamlFileScannerTest {
 
-    private YamlFileScanner yamlFileScanner = new YamlFileScanner();
+    private YamlFileScanner yamlFileScanner = new YamlFileScanner("classpath:directsql");
 
     @Test
     public void should_return_query_yaml_from_default_folder () {

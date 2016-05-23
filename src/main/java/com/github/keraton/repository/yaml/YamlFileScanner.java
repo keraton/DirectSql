@@ -1,5 +1,7 @@
 package com.github.keraton.repository.yaml;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
@@ -25,6 +27,12 @@ public class YamlFileScanner {
 
     private final ResourcePatternResolver resourcePatternResolver =
                                         new PathMatchingResourcePatternResolver(this.getClass().getClassLoader());
+    private final String pathConf;
+
+    @Autowired
+    public YamlFileScanner(@Value("${directsql.conf.directory}") String pathConf) {
+        this.pathConf = pathConf;
+    }
 
     public List<File> scanQuery() {
         return asList(getResources())
@@ -36,7 +44,7 @@ public class YamlFileScanner {
 
     public File scanDatasource() {
         try {
-            return resourcePatternResolver.getResource("classpath:directsql/jdbc-datasource.yml").getFile();
+            return resourcePatternResolver.getResource(pathConf + "/jdbc-datasource.yml").getFile();
         } catch (IOException e) {
             throw new IllegalStateException("Should have jdbc-datasource.yml");
         }
@@ -44,7 +52,7 @@ public class YamlFileScanner {
 
     private Resource[] getResources()  {
         try {
-            return resourcePatternResolver.getResources("classpath:directsql/*-query.yml");
+            return resourcePatternResolver.getResources(pathConf + "/*-query.yml");
         } catch (IOException e) {
             return new Resource [] {};
         }
